@@ -97,18 +97,29 @@
                                     <td>{{$data_slider->slider_button_text}}</td>
                                     <td>{{$data_slider->slider_button_link}}</td>
                                     <td>
-                                        <a class="dropdown-item" href="{{url('/restaurant/'.$id.'/slider/edit/'.$data_slider->id)}}">{{trans('layout.edit')}}</a>
-
-                                        <form action="{{url('/slider/delete',['id'=>$data_slider->id])}}" method="POST" onsubmit="return confirm('Are you sure want to delete ?')">
-                                             @method('DELETE')
-                                             @csrf
-                                             <button type="submit">{{trans('layout.delete')}}</button>           
-                                        </form>
-                                        {{-- <a class="dropdown-item" href="{{url('/slider/delete/'.$data_slider->id)}}">
-                                            {{trans('layout.delete')}}
-                                        </a> --}}
+                                        <div class="dropdown">
+                                            <button type="button" class="btn btn-success light sharp"
+                                                    data-toggle="dropdown">
+                                                <svg width="20px" height="20px" viewBox="0 0 24 24" version="1.1">
+                                                    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <rect x="0" y="0" width="24" height="24"/>
+                                                        <circle fill="#000000" cx="5" cy="12" r="2"/>
+                                                        <circle fill="#000000" cx="12" cy="12" r="2"/>
+                                                        <circle fill="#000000" cx="19" cy="12" r="2"/>
+                                                    </g>
+                                                </svg>
+                                            </button>
+                                            <div class="dropdown-menu">
+                                                <a class="dropdown-item" href="{{url('/restaurant/'.$id.'/slider/edit/'.$data_slider->id)}}">{{trans('layout.edit')}}</a>
+                                                
+                                                <form action="{{url('/slider/delete',['id'=>$data_slider->id])}}" method="POST" onsubmit="return confirm('Are you sure want to delete ?')">
+                                                     @method('DELETE')
+                                                     @csrf
+                                                     <button class="dropdown-item" type="submit">{{trans('layout.delete')}}</button>           
+                                                </form>
+                                            </div>
+                                        </div>
                                     </td>
-
                                 </tr>
                          
                            @endforeach
