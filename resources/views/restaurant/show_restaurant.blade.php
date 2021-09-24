@@ -29,8 +29,8 @@
 
                 <div class="profile card card-body px-0 pt-0 pb-0 mb-0">
                         <div class="profile-head">
-                            <div class="photo-content">
-                                <h3>Hi, {{ Auth()->user()->name ?? $_COOKIE['user_name'] }}</h3>
+                            <div class="photo-content sanjeev-slider">
+                                <h3>Hi, Sanjeev</h3>
                                 <p>Welcome to Velmore, We hope you enjoy your stay</p>
                                     <!-- https://codepen.io/vilcu/pen/ZQwdGQ -->
                                 <div class="wrapper">
@@ -44,10 +44,11 @@
                                       <div>
                                         <div class="card">
                                           <div class="card-header">
-                                            <img class="cover-img" src="{{asset('uploads/'.$slider->slider_image)}}" alt="">
-                                            <p class="custom_text">{{$slider->slider_title}}</p>
-                                            <p class="custom_link"><a href="{{$slider->slider_button_link}}">{{$slider->slider_button_link}}</a></p>
-
+                                            <img class="cover-img slick-imgs" src="{{asset('uploads/'.$slider->slider_image)}}" alt="">
+                                            <div class="all-text">
+                                                <p class="custom_text">{{$slider->slider_title}}</p>
+                                                <p class="custom_link"><a href="{{$slider->slider_button_link}}">{{$slider->slider_button_text}}</a></p>
+                                            </div>
                                           </div>
                                         </div>
                                       </div>
@@ -555,55 +556,7 @@
     </script>
     @endif
     @endsection
-    <style type="text/css">
-        html, body{
-    margin: 0;
-    padding: 0;
-  }
-  .wrapper{
-    width:100%;
-    padding-top: 20px;
-    text-align:center;
-  }
-  h2{
-    font-family:sans-serif;
-    color:#fff;
-  }
-  .carousel{
-    width:90%;
-    margin:0px auto;
-  }
-  .slick-slide{
-    margin:10px;
-  }
-  .slick-slide img{
-    width:100%;
-  }
-  .slick-prev, .slick-next{
-    background: #000;
-    border-radius: 15px;
-    border-color: transparent;
-  }
-  .card{
-    border: 2px solid #fff;
-    box-shadow: 1px 1px 15px #ccc;
-  }
-  .card-body{
-    background: #fff;
-    width: 100%;
-    vertical-align: top;
-  }
-  .card-content{
-    text-align: left;
-    color: #333;
-    padding: 15px;
-  }
-  .card-text{
-    font-size: 14px;
-    font-weight: 300;
-  }
-
-      </style>
+  
 
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
@@ -618,8 +571,8 @@
       <script type="text/javascript">
         $(document).ready(function(){
     $('.carousel').slick({
-      speed: 500,
-      slidesToShow: 2,
+      speed: 2000,
+      slidesToShow: 1,
       slidesToScroll: 1,
       autoplay: true,
       autoplaySpeed: 2000,
@@ -638,7 +591,7 @@
         breakpoint: 800,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 2,
+          slidesToScroll: 1,
           dots: true,
           infinite: true,
 
