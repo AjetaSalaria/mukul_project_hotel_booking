@@ -30,35 +30,38 @@
                     <h4 class="card-title">{{trans('layout.card_slider')}}</h4>
                 </div>
                 <div class="card-body">
-                    <form action="{{url('/slider')}}" method="post">
-                        @csrf
-                        <div class="col-lg-12 mb-2">
-                            <div class="form-group">
-                                <label class="text-label">{{trans('layout.slider_one')}}</label>
-                                <input type="file" name="slider_image" class="form-control" accept="image/*" required>
-                            </div>
-                        </div>
-                         <div class="col-lg-12 mb-3">
-                            <div class="form-group">
-                                <label class="text-label">{{trans('layout.text')}}</label>
-                                <input type="text" name="slider_title" class="form-control" >
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mb-3">
-                            <div class="form-group">
-                                <label class="text-label">{{trans('layout.button')}}</label>
-                                <input type="text" name="slider_button_text"  class="form-control" >
-                            </div>
-                        </div>
-                        <div class="col-lg-12 mb-3">
-                            <div class="form-group">
-                                <label class="text-label">{{trans('layout.link')}}</label>
-                                <input type="text"  name="slider_button_link" class="form-control" >
-                            </div>
-                        </div>
-                        <input type="hidden" name="hotel_id" value="{{$id}}">
-                        <input type="submit" name="submit" value="submit" class="btn btn-success">
-                    </form>
+                   <form action="{{url('/slider')}}" method="post">
+                    @csrf
+                <div class="col-lg-12 mb-2">
+                    <div class="form-group">
+                        <label class="text-label">{{trans('layout.slider_one')}}</label>
+                        <input type="file" name="slider_image" class="form-control" accept="image/*">
+                    </div>
+                </div>
+             <div class="col-lg-12 mb-3">
+                <div class="form-group">
+                    <label class="text-label">{{trans('layout.text')}}</label>
+                    <input type="text" name="slider_title" class="form-control" >
+
+                </div>
+            </div>
+            <div class="col-lg-12 mb-3">
+                <div class="form-group">
+                    <label class="text-label">{{trans('layout.button')}}</label>
+                    <input type="text" name="slider_button_text" class="form-control" >
+
+                </div>
+            </div>
+            <div class="col-lg-12 mb-3">
+                <div class="form-group">
+                    <label class="text-label">{{trans('layout.link')}}</label>
+                    <input type="text" name="slider_button_link" class="form-control" >
+
+                </div>
+            </div>
+            <input type="hidden" name="hotel_id" value="{{$id}}">
+             <input type="submit" name="submit" value="submit" class="btn btn-success">
+                   </form>
                 </div>
             </div>
         </div>
@@ -96,18 +99,8 @@
                                     <td>{{$data_slider->slider_title}}</td>
                                     <td>{{$data_slider->slider_button_text}}</td>
                                     <td>{{$data_slider->slider_button_link}}</td>
-                                    <td>
-                                        <a class="dropdown-item" href="{{url('/restaurant/'.$id.'/slider/edit/'.$data_slider->id)}}">{{trans('layout.edit')}}</a>
-
-                                        <form action="{{url('/slider/delete',['id'=>$data_slider->id])}}" method="POST" onsubmit="return confirm('Are you sure want to delete ?')">
-                                             @method('DELETE')
-                                             @csrf
-                                             <button type="submit">{{trans('layout.delete')}}</button>           
-                                        </form>
-                                        {{-- <a class="dropdown-item" href="{{url('/slider/delete/'.$data_slider->id)}}">
-                                            {{trans('layout.delete')}}
-                                        </a> --}}
-                                    </td>
+                                    <{{-- td><a class="dropdown-item"
+                                                   href="{{route('slider.edit',[$data_slider->id])}}">{{trans('layout.edit')}}</a></td> --}}
 
                                 </tr>
                          
@@ -122,7 +115,6 @@
 @endsection
 
 @section('js')
-    <script src="{{asset('vendor/jquery-validation/jquery.validate.min.js')}}"></script>
     <script src="{{asset('vendor/jquery-steps/build/jquery.steps.min.js')}}"></script>
     <script src="{{asset('js/plugins-init/jquery-steps-init.js')}}"></script>
 @endsection

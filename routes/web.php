@@ -86,17 +86,13 @@ Route::group(['middleware' => ['auth','verified']], function () {
 
     //Restaurant
     Route::resource('restaurant', \App\Http\Controllers\RestaurantController::class)->middleware('can:restaurant_manage');
-    //Route::resource('slider', \App\Http\Controllers\SliderController::class)->middleware('can:restaurant_manage');
+
     Route::get('show-qr', [\App\Http\Controllers\RestaurantController::class, 'showQr'])->middleware('can:qr_manage');
     Route::get('login-as', [\App\Http\Controllers\RestaurantController::class, 'loginAs'])->name('restaurant.login.as')->middleware('can:restaurant_manage');
     Route::get('complimentary', [\App\Http\Controllers\RestaurantController::class, 'complimentary'])->name('restaurant.complimentary')->middleware('can:restaurant_manage');
     Route::get('/slider/{id}',[\App\Http\Controllers\SliderController::class,'index']);
-    Route::post('/slider',[\App\Http\Controllers\SliderController::class,'store']);
-    Route::get('restaurant/{restaurantId}/slider/edit/{id}',[\App\Http\Controllers\SliderController::class,'edit']);
-    Route::put('/slider/update/{id}',[\App\Http\Controllers\SliderController::class,'update']);
-     Route::delete('/slider/delete/{id}',[\App\Http\Controllers\SliderController::class,'destroy']);
 
-     // Route::post('/slider', [\App\Http\Controllers\SliderController::class, 'store'])->middleware('can:restaurant_manage');
+     Route::post('/slider', [\App\Http\Controllers\SliderController::class, 'store'])->middleware('can:restaurant_manage');
 
     //Item
     Route::resource('item', \App\Http\Controllers\ItemController::class)->middleware('can:food_category_manage');

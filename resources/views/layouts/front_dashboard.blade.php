@@ -26,42 +26,39 @@
 <div id="main-wrapper" class="place-order-front-sec new-cat-design">
     <div class="nav-header">
         <div class="nav-control nav-controls-box">
-        @if( last(request()->segments()) == 'roomservice' || last(request()->segments()) == 'foodservice')
-             <a class="hamburger" href="javascript.void(0)">
+            <div class="hamburger">
                 <span class="line"></span><span class="line"></span><span class="line"></span>
-            </a> 
-        @else
-           <div class="hamburger">
-                <span class="line"></span><span class="line"></span><span class="line"></span>
-            </div> 
-        @endif
+            </div>
         </div>
     </div>
 
     <div class="header front_res_header ">
         <div class="header-content">
-           <!--  <img class="cover-img" src="{{asset('uploads/'.$restaurant->profile_image)}}" alt=""></a> -->
+           
             <nav class="navbar navbar-expand">
                 <div class="collapse navbar-collapse justify-content-between navbar-collapse-box">
-                    <div class="header-left front_res_logo">
+                    
+                </div>
+            
+                    <div class="header-left front_res_logo your-hotel-logo">
                         @if($restaurant->profile_image)
-                        <a href="{{route('show.restaurant',['slug'=>$restaurant->slug])}}">
-                        <img class="cover-img" src="{{asset('uploads/'.$restaurant->profile_image)}}" alt=""></a>
+                         <a href="{{route('show.restaurant',['slug'=>$restaurant->slug])}}"> <img class="cover-img" src="{{asset('uploads/'.$restaurant->profile_image)}}" alt=""></a>  
                         @endif
                     </div>
-                </div>
+                    
+         
 
-                <div>
-                    <li data-toggle="collapse" data-target="#service" class="collapsed">
-                      <a href="{{route('show.restaurant',['slug'=>$restaurant->slug])}}"><i class="fa fa-home fa-3x home_new_icon" ></i></a>
-                    </li>
+                <div class="home-icon">
+                   
+                      <a data-toggle="collapse" data-target="#service" class="collapsed" href="{{route('show.restaurant',['slug'=>$restaurant->slug])}}"><img src="{{asset('images/icons/Iconfeatherhome.png')}}"></a>
+                  
                 </div>
             </nav>
         </div>
         <div class="header-left front_res_logo">
                         @if($restaurant->background_image)
-                        <a href="{{route('show.restaurant',['slug'=>$restaurant->slug])}}">
-                        <img class="cover-img" src="{{asset('uploads/'.$restaurant->background_image)}}" alt=""></a>
+                        
+                        <img class="cover-img" src="{{asset('uploads/'.$restaurant->background_image)}}" alt="">
                         @endif
                     </div>
     </div>

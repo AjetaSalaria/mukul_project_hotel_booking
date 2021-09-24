@@ -172,7 +172,7 @@ return [
         'token_expired'=>'Token has been expired or used',
         'reset_successful'=>'Password has been reset successfully',
         'slider_created'=>'Slider Added successfully',
-        'slider_deleted'=>'Slider Deleted successfully',
+
         'room_category_delete_warning'=>'Are you sure to delete this room category?',
         'room_category_delete'=>'Room Category deleted successfully',
         'category_delete_warning'=>'Are you sure to delete this category?',
