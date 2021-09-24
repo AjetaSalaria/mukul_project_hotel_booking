@@ -19,7 +19,7 @@ class SliderController extends Controller
         $data['id'] = $request->id;
         $data['slider'] = Slider::get();
         return view('slider.index',$data);
-
+        
     }
 
     /**
